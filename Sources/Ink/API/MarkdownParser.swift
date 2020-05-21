@@ -118,6 +118,8 @@ private extension MarkdownParser {
     func fragmentType(for character: Character,
                       nextCharacter: Character?) -> Fragment.Type {
         switch character {
+        case "^": return Highlight.self
+        case "@": return BlockquoteWithAuthor.self
         case "#": return Heading.self
         case "!": return Image.self
         case "<": return HTML.self
